@@ -1,5 +1,5 @@
 {% set name = "language_tool_python" %}
-{% set version = "2.3.0" %}
+{% set version = "2.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/jxmorris12/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: ee548908e37af66a7bce6ad53b47d4427def2eb6194be4faa36b63711bb56c13
+  sha256: 46f47e58dc68f16fff38f3d3732f5d429d2130451798444abb5434b7b02cd5fd
 
 build:
   number: 0
