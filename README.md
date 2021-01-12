@@ -5,11 +5,13 @@ Home: https://github.com/jxmorris12/language_tool_python
 
 Package license: GPL-3.0-only
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/language_tool_python-feedstock/blob/master/LICENSE.txt)
 
 Summary: a grammar checker for Python
 
+Development: https://github.com/jxmorris12/language_tool_python
 
+Documentation: https://pypi.org/project/language-tool-python/
 
 Current build status
 ====================
