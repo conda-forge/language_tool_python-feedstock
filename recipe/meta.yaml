@@ -1,43 +1,47 @@
 {% set name = "language_tool_python" %}
-{% set version = "2.5.1" %}
+{% set version = "2.9.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/jxmorris12/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: f36b1617e89c5092a5565512dfa2eeada5ed23a4317a2f47fa39f73498fd57bc
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/language_tool_python-{{ version }}.tar.gz
+  sha256: 0067c7b583265c3b0cc21cf22a03075dae0853f6542646788f0be377d8ea0559
 
 build:
-  number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
+    - python ={{ python_min }}
+    - setuptools >=61.0
+    - wheel
     - pip
-    - python
   run:
+    - python >={{ python_min }}
     - requests
     - tqdm
-    - python
+    - psutil
+    - toml
 
 test:
   imports:
     - language_tool_python
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python ={{ python_min }}
 
 about:
   home: https://github.com/jxmorris12/language_tool_python
-  license: GPL-3.0-only
-  license_family: GPL
+  summary: Checks grammar using LanguageTool.
+  license: GPL-3.0-or-later
   license_file: LICENSE
-  summary: a grammar checker for Python
-  doc_url: https://pypi.org/project/language-tool-python/
-  dev_url: https://github.com/jxmorris12/language_tool_python
 
 extra:
   recipe-maintainers:
-    - rluria14
-    - oblute
-    - ndmaxar
+    - danielnachun
